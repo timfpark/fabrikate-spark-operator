@@ -1,58 +1,13 @@
-# Fabrikate-Jaeger
+# fabrikate-spark-operator 
 
-This [fabrikate](http://github.com/microsoft/fabrikate) stack installs Jaeger on your cluster, with a provided "production" configuration.
+A [Fabrikate](http://github.com/microsoft/fabrikate) component for the Kubernetes [Spark Operator](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator).
 
-### Requirements
+## Getting Started
 
-- The [fabrikate 0.2.3](http://github.com/microsoft/fabrikate/releases) cli tool installed locally
-- The [helm](https://github.com/helm/helm/releases) cli tool installed locally
-- The kubectl cli tool installed locally
+You can add this component to any Fabrikate definition at the appropriate level with:
 
-### Setup
-
-Make sure your helm incubator repository is pointed at 	https://kubernetes-charts-incubator.storage.googleapis.com/. Older versions of Helm will have the incubator repository configured to a different location.
-
-Run the following in a terminal/shell:
-
-```
-helm repo remove incubator && helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+```sh
+$ fab add spark-operator --source https://github.com/timfpark/fabrikate-spark-operator
 ```
 
-### Installing fabrikate-jaeger
-
-1. In your stack's `component.json`, include `fabrikate-jaeger`:
-
-```json
-{
-    "name": "my-cool-stack",
-    "subcomponents": [
-        {
-            "name": "fabrikate-jaeger",
-            "source": "https://github.com/bnookala/fabrikate-jaeger",
-            "method": "git"
-        }
-    ]
-}
-```
-
-2. In a terminal window, install the stack dependencies:
-
-```
-fab install
-```
-
-3. In a terminal window, generate the stack:
-
-```
-fab generate prod
-```
-
-4. Apply the generated stack manifests:
-
-```
-kubectl apply -f ./generated/prod/ --recursive
-```
-
-### License
-
-MIT
+See the [Spark Operator quick start guide](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/quick-start-guide.md) for more details on how to specify a SparkApplication once installed.
