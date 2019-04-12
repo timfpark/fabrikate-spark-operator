@@ -1,0 +1,6 @@
+subcomponents:
+  spark-operator:
+    namespace: spark-operator
+    injectNamespace: true
+    config:
+      sparkJobNamespace: "spark-job"

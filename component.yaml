@@ -1,0 +1,11 @@
+name: "fabrikate-spark-operator"
+generator: "static"
+path: "./manifests"
+subcomponents:
+- name: "spark-operator"
+  generator: "helm"
+  repositories:
+    incubator: "https://kubernetes-charts-incubator.storage.googleapis.com/"
+  source: "https://github.com/helm/charts"
+  method: "git"
+  path: "incubator/sparkoperator"
